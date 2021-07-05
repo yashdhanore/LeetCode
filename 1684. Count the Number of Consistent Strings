@@ -1,0 +1,21 @@
+class Solution {
+    public int countConsistentStrings(String allowed, String[] words) {
+        int count = 0 ;
+        for(String current: words)
+        {
+            boolean valid = true;
+            for(char c: current.toCharArray())
+            {
+                if(!allowed.contains(String.valueOf(c)))
+                {
+                    valid = false;
+                }
+            }
+            if(valid == true)
+            {
+                count++;
+            }
+        }
+        return count;
+    }
+}
