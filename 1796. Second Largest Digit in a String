@@ -1,0 +1,28 @@
+class Solution {
+    public int secondHighest(String s) {
+        HashSet<String> set = new HashSet<String>();
+        s = s.replaceAll("[^\\d.]", "");
+        if(s.length() < 1 )
+        {
+            return -1;
+        }
+        for(int i = 0; i < s.length(); i++)
+        {
+            set.add(Character.toString(s.charAt(i)));
+        }
+        if(set.size() == 1)
+        {
+            return -1;
+        }
+        int a[]=new int[set.size()];
+        Iterator<String> i = set.iterator();
+        int j = 0;
+        while (i.hasNext())
+        {
+             a[j] = Integer.parseInt(i.next());
+              j++;
+        }
+        Arrays.sort(a); 
+        return a[a.length-2];
+    }
+}
